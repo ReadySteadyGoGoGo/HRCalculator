@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeesDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BaseSalary" Type="Int32" Nullable="false" />
+    <Property Name="HireDate" Type="Int64" Nullable="false" />
+    <Property Name="ChiefID" Type="Int32" />
+    <NavigationProperty Name="Subordinates" Relationship="Self.FK_Employee_0_0" FromRole="Employee" ToRole="Employee1" />
+    <NavigationProperty Name="Chief" Relationship="Self.FK_Employee_0_0" FromRole="Employee1" ToRole="Employee" />
+    <NavigationProperty Name="User" Relationship="EmployeesDBModel.FK_Users_0_0" FromRole="Employee" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Employee_0_0">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Employee1" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee1">
+        <PropertyRef Name="ChiefID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmployeesDBContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <AssociationSet Name="FK_Employee_0_0" Association="Self.FK_Employee_0_0">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Employee1" EntitySet="Employees" />
+    </AssociationSet>
+    <EntitySet Name="Users" EntityType="EmployeesDBModel.User" />
+    <AssociationSet Name="FK_Users_0_0" Association="EmployeesDBModel.FK_Users_0_0">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="ExceptionNotes" EntityType="EmployeesDBModel.ExceptionNote" />
+  </EntityContainer>
+  <EntityType Name="Manager" BaseType="EmployeesDBModel.Employee" />
+  <EntityType Name="Salesman" BaseType="EmployeesDBModel.Employee" />
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="EmployeesDBModel.FK_Users_0_0" FromRole="User" ToRole="Employee" />
+  </EntityType>
+  <Association Name="FK_Users_0_0">
+    <End Type="EmployeesDBModel.Employee" Role="Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="EmployeesDBModel.User" Role="User" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ExceptionNote">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="Int64" Nullable="false" />
+    <Property Name="Source" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,34 @@
+﻿<Window x:Class="SalaryCalc.NewEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalaryCalc"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+           Title="Create new User" Height="400" Width="300" FontSize="14" Background="DarkSlateGray">
+    <Border Background= "SteelBlue" Margin="10" CornerRadius="20" >
+        <StackPanel Name="Mainpanel" Margin="15">
+
+            <Separator></Separator>
+            <Label Name="NameLabel" Content="Name" Foreground="Azure" FontSize="14"></Label>
+            <TextBox Name="NametextBox" Background="White" Foreground="SteelBlue" FontSize="18" FontWeight="Bold" Margin="10,0" ></TextBox>
+            <Label Name="HireDateLabel" Content="Hire Date" Foreground="Azure" FontSize="14"></Label>
+            <DatePicker Name="HiredatePicker" Margin="10,0"/>
+            <Label Name="GroupLabel" Content="Group" Foreground="Azure" FontSize="14"></Label>
+            <ComboBox Name="GroupcomboBox" Text="Employee" Margin="10,0" />
+
+
+            <Label Name="ChiefLabel" Content="Chief" Foreground="Azure" FontSize="14"></Label>
+            <ComboBox Name="ChiefcomboBox" Margin="10,0" />
+
+    
+            <Label Name="SalaryLabel" Content="Salary" Foreground="Azure" FontSize="14"></Label>
+            <TextBox Name="SalarytextBox" Background="White" Foreground="SteelBlue" FontSize="18" FontWeight="Bold" Margin="10,0" ></TextBox>
+
+
+            <Button Name="CreateBtn" Content="Create"  Background="DarkSlateGray" Foreground="Azure" Margin="60,10" Click="CreateBtn_Click"></Button>
+
+        </StackPanel>
+    </Border>
+</Window>
