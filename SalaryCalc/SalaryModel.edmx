@@ -129,7 +129,7 @@
           <End Type="EmployeesDBModel.Employee" Role="Employee" Multiplicity="1" >
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="EmployeesDBModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="EmployeesDBModel.User" Role="User" Multiplicity="1" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="ID" />
