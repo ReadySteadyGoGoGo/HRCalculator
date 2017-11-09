@@ -46,7 +46,7 @@ namespace SalaryCalc
                         {
                             case 1:
                                 {
-                                    MessageBox.Show("Employee Role");
+ 
                                     EmployeeWindow eMain = new EmployeeWindow(User.Employee.Name, User.Role);
                                     eMain.Show();
                                     this.Close();
@@ -55,7 +55,7 @@ namespace SalaryCalc
                                 break;
                             case 2:
                                 {
-                                    MessageBox.Show("Manager Role");
+           
                                     ManagerWindow mMain = new ManagerWindow(User.Employee.Name, User.Role);
 
                                     mMain.Show();
@@ -65,7 +65,7 @@ namespace SalaryCalc
                                 break;
                             case 3:
                                 {
-                                    MessageBox.Show("Admin Role");
+       
                                     AdminWindow aMain = new AdminWindow(User.Employee.Name, User.Role);
                                     aMain.Show();
                                     this.Close();

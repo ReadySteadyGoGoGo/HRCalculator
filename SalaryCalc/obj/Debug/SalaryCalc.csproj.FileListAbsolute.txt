@@ -24,3 +24,4 @@ c:\users\skyline\documents\visual studio 2015\Projects\SalaryCalc\SalaryCalc\obj
 c:\users\skyline\documents\visual studio 2015\Projects\SalaryCalc\SalaryCalc\obj\Debug\Login.baml
 C:\Users\Skyline\documents\visual studio 2015\Projects\SalaryCalc\SalaryCalc\obj\Debug\NewEmployee.g.cs
 C:\Users\Skyline\documents\visual studio 2015\Projects\SalaryCalc\SalaryCalc\obj\Debug\NewEmployee.baml
+C:\Users\Skyline\Documents\Visual Studio 2015\Projects\SalaryCalc\SalaryCalc\obj\Debug\SalaryCalc.csprojResolveAssemblyReference.cache
