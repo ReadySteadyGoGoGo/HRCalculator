@@ -112,14 +112,18 @@ namespace SalaryCalc
                 if (EmployeeslistView.Items.Count > 0)
                 {
                     int SelectedIndex = EmployeeslistView.SelectedIndex;
-                    string SelectedEmployee = EmployeeslistView.SelectedValue.ToString();
-                    using (EmployeesDBContext _context = new EmployeesDBContext())
+                    if(SelectedIndex !=-1)
                     {
-                        var EmployeeToDetele = _context.Employees.SingleOrDefault(x => x.Name == SelectedEmployee);
-                        _context.Employees.Remove(EmployeeToDetele);
-                        _context.SaveChanges();
+                        string SelectedEmployee = EmployeeslistView.SelectedValue.ToString();
+                        using (EmployeesDBContext _context = new EmployeesDBContext())
+                        {
+                            var EmployeeToDetele = _context.Employees.SingleOrDefault(x => x.Name == SelectedEmployee);
+                            _context.Employees.Remove(EmployeeToDetele);
+                            _context.SaveChanges();
+                        }
+                        WholeList();
                     }
-                    WholeList();
+                  
                 }
                 else
                 {

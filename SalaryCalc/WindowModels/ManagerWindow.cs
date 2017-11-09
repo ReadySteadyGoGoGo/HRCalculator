@@ -18,7 +18,7 @@ namespace SalaryCalc
 {
     class ManagerWindow : EmployeeWindow
     {
-        private int chk1 = 0;
+ 
         private string _name= "";
         public ManagerWindow(string Name,int Role) :base(Name,Role)
         {
@@ -26,7 +26,10 @@ namespace SalaryCalc
             List<string> Menulist = new List<string> { "My Details", "My Collegues", "Salary Calculator", "My SubOrdinates", "SubOrdinates Salary" };
             SetInitial(Menulist,_name,Role);
 
-            
+            Details_4_datepicker.SelectedDateChanged += Details_4_datepicker_SelectedDateChanged;
+            Details_2_button.Click += Details_2_button_Click;
+            Details_6_datePicker.SelectedDateChanged += Details_6_datePicker_SelectedDateChanged;
+
         }
 
 
@@ -114,9 +117,7 @@ namespace SalaryCalc
 
         private void Details_6_datePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            Details_6_datePicker.SelectedDateChanged -= Details_6_datePicker_SelectedDateChanged;
-            chk1++;
-            MessageBox.Show("Details_6_datePicker_SelectedDateChanged executed " + chk1 + "times");
+            
             try
             {
 
@@ -257,6 +258,7 @@ namespace SalaryCalc
                             SubordinateList(_name);                   
                             Details_6_datePicker.SelectedDate = DateTime.Now;
                             Details_6_label.Content = "Salary Statistics for my SubOrdinates:";
+                            Details_6.Visibility = Visibility.Visible;
 
 
                             EmployeeslistView.Visibility = Visibility.Visible;

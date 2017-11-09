@@ -97,6 +97,7 @@ namespace SalaryCalc
                 {
                     MessageBox.Show("User with the name" + NametextBox.Text + " is already exist in the Database!");
                     return;
+
                 }
 
                 string Chief = ChiefcomboBox.SelectedValue.ToString();
